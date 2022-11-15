@@ -32,5 +32,10 @@ function domloaded(){
     let insert_list = document.createElement("ol");
     let placement = document.getElementById("secondChristmas");
     document.body.insertBefore(insert_list,placement);
-
+    insert_list.setAttribute("type","I");
+    for(let i = 0; i < 3;i++){
+        let list_item = document.createElement("li");
+        list_item.textContent = "item";
+        insert_list.appendChild(list_item);
+    }
 }
