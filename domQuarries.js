@@ -38,4 +38,24 @@ function domloaded(){
         list_item.textContent = "item";
         insert_list.appendChild(list_item);
     }
+    let form_list = document.querySelectorAll("#vorur > li > a");
+    let product_bar = document.querySelector("#vara");
+    
+    product_bar.addEventListener("change",(val)=>{
+        if(val.target.value != ""){
+            let add_item = document.createElement("li");
+            let add_item_link = document.createElement("a");
+            add_item_link.addEventListener("click",()=>{add_item.remove();});
+            add_item_link.textContent = val.target.value;
+            add_item.appendChild(add_item_link);
+            form_list[0].parentElement.parentElement.appendChild(add_item);
+        }
+    });
+    for(let i = 0; i < form_list.length;i++){
+        if(form_list[i].textContent == "jalapeno"){
+            form_list[i].textContent = "paprika";
+        }
+        form_list[i].removeAttribute("href");
+        form_list[i].addEventListener("click",()=>{form_list[i].parentElement.remove();});
+    }
 }
